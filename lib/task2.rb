@@ -1,33 +1,31 @@
 class TimeCounter
   
   def self.count(n,x,y)
-    
-    if x > y
-      x,y = y,x
-    end
+    # search for fastest printer
+    x,y = y,x if x > y
+    # first page time
     time = x
-    puts time
-    #nod = x.gcd(y)
-    
-    temp1 = (y/x + 1)
-    
-    time += ((n-1)/temp1)#*nod
-    puts time
-    n = (n-1) % temp1
-    puts n
-    temp1 = 0
-    temp2 = 0
+    n -= 1
+    # system printing temp
+    system_speed = (y / x + 1)
+    # time for major work
+    time += (n / system_speed) * y
+    # last pages
+    n = n % system_speed
+    # job left should be done with fastests
+    x_speed = 0
+    y_speed = 0
+    # for every page wich left we calculate fastest way to print
     while n > 0
-      temp1+=1
-      temp2+=1
-      time+=1
-      puts time
-      if temp1 >= x
-        n-=1
-        temp1 = (temp1 % x)
-      elsif temp2 >= y
-        n-=1
-        temp2 = (temp2 % y)
+      x_speed += 1
+      y_speed += 1
+      time += 1 
+      if x_speed >= x
+        n -= 1
+        x_speed = (x_speed % x)
+      elsif y_speed >= y
+        n -= 1
+        y_speed = (y_speed % y)
       end 
     end
     time
