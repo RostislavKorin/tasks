@@ -13,19 +13,19 @@ class TimeCounter
     # last pages
     n = n % system_speed
     # job left should be done with fastests
-    x_speed = 0
-    y_speed = 0
+    x_time_for_one_page = 0
+    y_time_for_one_page = 0
     # for every page wich left we calculate fastest way to print
     while n > 0
-      x_speed += 1
-      y_speed += 1
+      x_time_for_one_page += 1
+      y_time_for_one_page += 1
       time += 1 
-      if x_speed >= x
+      if x_time_for_one_page >= x
         n -= 1
-        x_speed = (x_speed % x)
-      elsif y_speed >= y
+        x_time_for_one_page = (x_time_for_one_page % x)
+      elsif y_time_for_one_page >= y
         n -= 1
-        y_speed = (y_speed % y)
+        y_time_for_one_page = (y_time_for_one_page % y)
       end 
     end
     time

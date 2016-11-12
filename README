@@ -1,0 +1,12 @@
+1. Installation requirements 
+ruby version 2+
+bundler
+
+2. How to run
+
+bundle && bundle exec rspec
+
+Rostislav Korin
+email: rostislav.korin@gmail.com
+skype: rostislav.o.korin
+github: https://github.com/RostislavKorin
