@@ -1,5 +1,5 @@
 class FriendsCounter
-  def self.count(n,s,m)
+  def self.count(_n,s,m)
     friends = Array.new(m.size) # array of all workers of sloboda
     for i in 0..(m.size-1)
       friends[i] ||= []
@@ -13,10 +13,10 @@ class FriendsCounter
             friends[i] << friend_id if !friends[i].include?(friend_id) && friend_id != i
           end
         end
-        # for each new friend of i we add i
-        friends[i].each do |friend_id|
-          friends[friend_id] << i if !friends[friend_id].include?(i) && friend_id != i
-        end
+      end
+      # for each new friend of i we add i
+      friends[i].each do |friend_id|
+        friends[friend_id] << i if !friends[friend_id].include?(i) && friend_id != i
       end
     end
     # count amount of friends for worker number s

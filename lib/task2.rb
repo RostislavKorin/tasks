@@ -6,13 +6,6 @@ class TimeCounter
     # first page time
     time = x
     n -= 1
-    # system printing temp
-    system_speed = (y / x + 1)
-    # time for major work
-    time += (n / system_speed) * y
-    # last pages
-    n = n % system_speed
-    # job left should be done with fastests
     x_time_for_one_page = 0
     y_time_for_one_page = 0
     # for every page wich left we calculate fastest way to print
@@ -22,10 +15,11 @@ class TimeCounter
       time += 1 
       if x_time_for_one_page >= x
         n -= 1
-        x_time_for_one_page = (x_time_for_one_page % x)
-      elsif y_time_for_one_page >= y
+        x_time_for_one_page = 0
+      end
+      if y_time_for_one_page >= y
         n -= 1
-        y_time_for_one_page = (y_time_for_one_page % y)
+        y_time_for_one_page = 0
       end 
     end
     time
